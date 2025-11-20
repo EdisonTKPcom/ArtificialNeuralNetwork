@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ann-lab"
+version = "0.1.0"
+description = "Comprehensive collection of neural network architectures in PyTorch"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "numpy>=1.24.0",
+    "matplotlib>=3.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.4.0",
+]
+notebooks = [
+    "jupyter>=1.0.0",
+    "ipykernel>=6.25.0",
+    "ipywidgets>=8.1.0",
+]
+graph = [
+    "networkx>=3.0",
+    "torch-geometric>=2.3.0",
+]
+all = [
+    "pydantic>=2.0.0",
+    "networkx>=3.0",
+    "torch-geometric>=2.3.0",
+    "seaborn>=0.12.0",
+    "plotly>=5.16.0",
+    "tensorboard>=2.14.0",
+    "pandas>=2.0.0",
+    "scikit-learn>=1.3.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/ann-architectures-lab"
+Documentation = "https://github.com/yourusername/ann-architectures-lab"
+Repository = "https://github.com/yourusername/ann-architectures-lab"
+Issues = "https://github.com/yourusername/ann-architectures-lab/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=src/ann_lab --cov-report=html --cov-report=term"
